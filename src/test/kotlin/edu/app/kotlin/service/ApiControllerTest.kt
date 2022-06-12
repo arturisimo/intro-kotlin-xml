@@ -18,7 +18,7 @@ class ApiControllerTest() {
     private lateinit var connectorService: ConnectorService
 
     @Test
-    fun pms() {
+    fun jaxb() {
         val xml = FileUtils.readFileUsingGetResources("/pms.xml")
         every { connectorService.pms() } returns xml
         val pms = XMLUtils.unmarshal<jaxb.model.Pms>(xml)

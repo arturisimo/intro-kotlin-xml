@@ -4,6 +4,7 @@ import edu.app.kotlin.controller.extensions.findNodeByName
 import edu.app.kotlin.controller.extensions.getTrimmedContent
 import edu.app.kotlin.model.Pm
 import edu.app.kotlin.model.Pms
+import edu.app.kotlin.util.XMLUtils
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -16,11 +17,19 @@ import java.io.StringReader
 import javax.xml.parsers.DocumentBuilderFactory
 
 @Service
-class ParseDomService {
+class ParseXmlService {
 
     val errorLogger: Logger = LoggerFactory.getLogger("error")
 
-    fun parse(xml: String): Pms? {
+    fun parseJAXB(xml: String): jaxb.model.Pms {
+        val start = System.nanoTime()
+        val pms = XMLUtils.unmarshal<jaxb.model.Pms>(xml)
+        println("execution time jaxb: ${(System.nanoTime() - start)/1_000_000} ms")
+        return pms
+    }
+
+    fun parseDom(xml: String): Pms? {
+        val start = System.nanoTime()
 
         val inputSource = InputSource(StringReader(xml))
 
@@ -54,6 +63,7 @@ class ParseDomService {
                     )
                 )
             }
+            println("execution time dom: ${(System.nanoTime() - start)/1_000_000} ms")
             return Pms(fechaHora, listOfPM)
 
         } catch (spe: SAXParseException) {

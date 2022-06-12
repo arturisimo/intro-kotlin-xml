@@ -49,6 +49,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("com.ninja-squad:springmockk:3.0.1")
+    testImplementation("io.rest-assured:rest-assured:5.1.1")
+    testImplementation("io.rest-assured:json-path:5.1.1")
+    testImplementation("io.rest-assured:xml-path:5.1.1")
 
 }
 

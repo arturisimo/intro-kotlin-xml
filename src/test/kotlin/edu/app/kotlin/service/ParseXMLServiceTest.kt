@@ -2,7 +2,6 @@ package edu.app.kotlin.service
 
 import com.ninjasquad.springmockk.MockkBean
 import edu.app.kotlin.util.FileUtils
-import edu.app.kotlin.util.XMLUtils
 import io.mockk.every
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -13,7 +12,7 @@ import java.math.BigInteger
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class ApiControllerTest(
+class ParseXMLServiceTest(
     @Autowired val parseXmlService: ParseXmlService
 ) {
 

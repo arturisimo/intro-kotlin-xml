@@ -36,3 +36,6 @@ http://kong.github.io/unirest-java/
 
 https://informo.madrid.es/informo/tmadrid/pm.xml
 
+## DOM Parsers
+
+https://mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/

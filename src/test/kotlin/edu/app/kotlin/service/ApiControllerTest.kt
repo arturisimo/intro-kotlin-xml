@@ -7,12 +7,15 @@ import io.mockk.every
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.math.BigInteger
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class ApiControllerTest() {
+class ApiControllerTest(
+    @Autowired val parseXmlService: ParseXmlService
+) {
 
     @MockkBean
     private lateinit var connectorService: ConnectorService
@@ -21,8 +24,17 @@ class ApiControllerTest() {
     fun jaxb() {
         val xml = FileUtils.readFileUsingGetResources("/pms.xml")
         every { connectorService.pms() } returns xml
-        val pms = XMLUtils.unmarshal<jaxb.model.Pms>(xml)
+        val pms: jaxb.model.Pms = parseXmlService.parseJAXB(xml)
         Assertions.assertEquals(4, pms.pm.size)
         Assertions.assertEquals(BigInteger("3409"), pms.pm[0].idelem)
+    }
+
+    @Test
+    fun dom() {
+        val xml = FileUtils.readFileUsingGetResources("/pms.xml")
+        every { connectorService.pms() } returns xml
+        val pms: edu.app.kotlin.model.Pms? = parseXmlService.parseDom(xml)
+        Assertions.assertEquals(4, pms!!.pm.size)
+        Assertions.assertEquals("3409", pms.pm[0].idelem)
     }
 }

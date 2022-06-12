@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="pms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fecha_hora"/>
+        <xs:element maxOccurs="unbounded" ref="pm"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fecha_hora" type="xs:string"/>
+  <xs:element name="pm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="idelem"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="descripcion"/>
+          <xs:element ref="accesoAsociado"/>
+        </xs:sequence>
+        <xs:element ref="intensidad"/>
+        <xs:element ref="ocupacion"/>
+        <xs:element ref="carga"/>
+        <xs:element ref="nivelServicio"/>
+        <xs:choice>
+          <xs:element ref="intensidadSat"/>
+          <xs:element ref="velocidad"/>
+        </xs:choice>
+        <xs:element ref="error"/>
+        <xs:element minOccurs="0" ref="subarea"/>
+        <xs:element ref="st_x"/>
+        <xs:element ref="st_y"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="idelem" type="xs:integer"/>
+  <xs:element name="descripcion" type="xs:string"/>
+  <xs:element name="accesoAsociado" type="xs:string"/>
+  <xs:element name="intensidad" type="xs:integer"/>
+  <xs:element name="ocupacion" type="xs:integer"/>
+  <xs:element name="carga" type="xs:integer"/>
+  <xs:element name="nivelServicio" type="xs:string"/>
+  <xs:element name="intensidadSat" type="xs:integer"/>
+  <xs:element name="velocidad" type="xs:integer"/>
+  <xs:element name="error" type="xs:string"/>
+  <xs:element name="subarea" type="xs:integer"/>
+  <xs:element name="st_x" type="xs:string"/>
+  <xs:element name="st_y" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,59 @@
+<pms>
+    <fecha_hora>12/06/2022 19:10:06</fecha_hora>
+    <pm>
+        <idelem>3409</idelem>
+        <descripcion>SEPULVEDA Ø118 N-S (CEBREROS-CJAL. FCO. J. JIMENEZ)</descripcion>
+        <accesoAsociado>240102</accesoAsociado>
+        <intensidad>90</intensidad>
+        <ocupacion>2</ocupacion>
+        <carga>4</carga>
+        <nivelServicio>0</nivelServicio>
+        <intensidadSat>3000</intensidadSat>
+        <error>N</error>
+        <subarea>1718</subarea>
+        <st_x>436004,103195086</st_x>
+        <st_y>4472588,47356732</st_y>
+    </pm>
+    <pm>
+        <idelem>4739</idelem>
+        <descripcion>CJAL. FCO. J. JIMENEZ Ø126 E-O (BERLANAS-SEPULVEDA)</descripcion>
+        <accesoAsociado>240101</accesoAsociado>
+        <intensidad>180</intensidad>
+        <ocupacion>1</ocupacion>
+        <carga>13</carga>
+        <nivelServicio>0</nivelServicio>
+        <intensidadSat>1500</intensidadSat>
+        <error>N</error>
+        <subarea>1718</subarea>
+        <st_x>436039,137988103</st_x>
+        <st_y>4472395,05226989</st_y>
+    </pm>
+    <pm>
+        <idelem>4740</idelem>
+        <descripcion>CJAL. FCO. J. JIMENEZ Ø86 O-E (F. CALVO-ALHAMBRA)</descripcion>
+        <accesoAsociado>240604</accesoAsociado>
+        <intensidad>0</intensidad>
+        <ocupacion>0</ocupacion>
+        <carga>0</carga>
+        <nivelServicio>0</nivelServicio>
+        <intensidadSat>1500</intensidadSat>
+        <error>N</error>
+        <subarea>1712</subarea>
+        <st_x>436730,451619122</st_x>
+        <st_y>4472483,85415038</st_y>
+    </pm>
+    <pm>
+        <idelem>4741</idelem>
+        <descripcion>CJAL. FCO. J. JIMENEZ Ø76 E-O (HURTUMPASCUAL-ALHAMBRA)</descripcion>
+        <accesoAsociado>240602</accesoAsociado>
+        <intensidad>0</intensidad>
+        <ocupacion>0</ocupacion>
+        <carga>0</carga>
+        <nivelServicio>0</nivelServicio>
+        <intensidadSat>1500</intensidadSat>
+        <error>N</error>
+        <subarea>1712</subarea>
+        <st_x>436895,947727199</st_x>
+        <st_y>4472512,33474052</st_y>
+    </pm>
+</pms>

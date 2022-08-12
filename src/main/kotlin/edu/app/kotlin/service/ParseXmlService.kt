@@ -1,5 +1,6 @@
 package edu.app.kotlin.service
 
+import edu.app.kotlin.aop.TimeIt
 import edu.app.kotlin.controller.extensions.findNodeByName
 import edu.app.kotlin.controller.extensions.getTrimmedContent
 import edu.app.kotlin.model.Pm
@@ -13,23 +14,19 @@ import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import org.xml.sax.InputSource
 import org.xml.sax.SAXParseException
-import java.io.StringReader
 import javax.xml.parsers.DocumentBuilderFactory
+import java.io.StringReader
 
 @Service
 class ParseXmlService {
 
     val errorLogger: Logger = LoggerFactory.getLogger("error")
 
-    fun parseJAXB(xml: String): jaxb.model.Pms {
-        val start = System.nanoTime()
-        val pms = XMLUtils.unmarshal<jaxb.model.Pms>(xml)
-        println("execution time jaxb: ${(System.nanoTime() - start)/1_000_000} ms")
-        return pms
-    }
+    @TimeIt
+    fun parseJAXB(xml: String): jaxb.model.Pms = XMLUtils.unmarshal<jaxb.model.Pms>(xml)
 
+    @TimeIt
     fun parseDom(xml: String): Pms? {
-        val start = System.nanoTime()
 
         val inputSource = InputSource(StringReader(xml))
 
@@ -63,7 +60,6 @@ class ParseXmlService {
                     )
                 )
             }
-            println("execution time dom: ${(System.nanoTime() - start)/1_000_000} ms")
             return Pms(fechaHora, listOfPM)
 
         } catch (spe: SAXParseException) {
@@ -72,4 +68,6 @@ class ParseXmlService {
         }
 
     }
+
+
 }

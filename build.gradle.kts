@@ -29,6 +29,9 @@ dependencies {
     // Spring boot dependencies
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    // Spring aop dependencies
+    implementation("org.springframework.boot:spring-boot-starter-aop:2.4.4")
+
     // Kotlin dependencies
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -52,6 +55,8 @@ dependencies {
     testImplementation("io.rest-assured:rest-assured:5.1.1")
     testImplementation("io.rest-assured:json-path:5.1.1")
     testImplementation("io.rest-assured:xml-path:5.1.1")
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation(kotlin("test"))
 
 }
 
